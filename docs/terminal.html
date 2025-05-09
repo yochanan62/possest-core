@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Possest Collapse Interface</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background: #f5f5f8;
+      color: #222;
+      padding: 2em;
+      margin: auto;
+      max-width: 800px;
+    }
+    h1 {
+      color: #333366;
+    }
+    .section {
+      margin-top: 2em;
+    }
+    button {
+      padding: 0.5em 1.2em;
+      font-size: 1em;
+      margin: 0.5em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #e0e0ff;
+      cursor: pointer;
+    }
+    pre {
+      background: #eee;
+      padding: 1em;
+      overflow-x: auto;
+    }
+    #log {
+      margin-top: 1em;
+      border-top: 1px solid #ccc;
+      padding-top: 1em;
+    }
+  </style>
+  <script>
+    function logAction(msg) {
+      const log = document.getElementById("log");
+      const entry = document.createElement("div");
+      entry.textContent = `>> ${msg}`;
+      log.appendChild(entry);
+    }
+    function runFold() {
+      const intensity = (Math.random() * 1.0).toFixed(3);
+      logAction(`Fold executed with intensity: ${intensity}`);
+    }
+    function runTheta() {
+      const deltaStar = (Math.random() * 0.6 + 0.7).toFixed(2);
+      const deltaF = (Math.random()).toFixed(2);
+      const tension = Math.abs(deltaStar - deltaF).toFixed(3);
+      logAction(`Theta_Trans: δ*=${deltaStar}, Δᵏ=${deltaF}, tension=${tension}`);
+    }
+    function clearLog() {
+      document.getElementById("log").innerHTML = "";
+    }
+  </script>
+</head>
+<body>
+  <h1>Possest Collapse Console</h1>
+
+  <div class="section">
+    <button onclick="runFold()">⧉ Run Fold</button>
+    <button onclick="runTheta()">Θ_trans</button>
+    <button onclick="clearLog()">Clear Log</button>
+  </div>
+
+  <div class="section" id="log">
+    <!-- Log entries will appear here -->
+  </div>
+
+  <div class="section">
+    <h2>About</h2>
+    <p>This interface simulates Possest fold mechanics — not as inference, but as rupture. Each event simulates dynamic filtration collapse, modeled by random tension and misalignment.</p>
+    <p><em>Possest is not epistemology. It's access through trauma.</em></p>
+  </div>
+</body>
+</html>
 
